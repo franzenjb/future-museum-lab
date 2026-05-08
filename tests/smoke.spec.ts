@@ -7,6 +7,16 @@ test("core routes render", async ({ page }) => {
   }
 });
 
+test("homepage is a threshold into the essay", async ({ page }) => {
+  await page.goto("/");
+  await expect(
+    page.getByRole("heading", { name: "The Future Art Museum" }),
+  ).toBeVisible();
+  await expect(page.getByText("Technology is dismantling all three")).toBeVisible();
+  await page.getByRole("link", { name: "Enter the Lab" }).click();
+  await expect(page.locator("#essay")).toBeInViewport();
+});
+
 test("slow looking room stages prompts", async ({ page }) => {
   await page.goto("/slow-looking");
   await expect(page.getByRole("heading", { name: /Stay with one image/i })).toBeVisible();

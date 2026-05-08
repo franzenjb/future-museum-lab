@@ -1,42 +1,30 @@
 import Link from "next/link";
-import { Kicker, PageFrame } from "@/components/SiteShell";
-import { futureConcepts } from "@/lib/content";
+import { PageFrame } from "@/components/SiteShell";
 
 export default function LabPage() {
   return (
     <PageFrame>
-      <section className="architectural-grid px-5 py-16 sm:px-8">
-        <div className="mx-auto max-w-7xl">
-          <Kicker>Interactive Demos</Kicker>
-          <div className="mt-8 grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-            <div>
-              <h1 className="font-serif text-6xl leading-none text-balance sm:text-8xl">
-                Futures Lab.
-              </h1>
-              <p className="mt-8 text-lg leading-8 text-ash">
-                A set of speculative prototypes for a museum that deepens
-                attention, strengthens public trust, and preserves cultural memory.
-              </p>
-              <Link
-                href="/slow-looking"
-                className="mt-8 inline-block border border-charcoal bg-charcoal px-5 py-4 font-mono text-[11px] uppercase tracking-[0.18em] text-paper transition hover:bg-museum-red"
-              >
-                Launch Slow Looking Room
-              </Link>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {futureConcepts.map((concept) => (
-                <article
-                  key={concept.title}
-                  className="border border-charcoal/15 bg-paper p-6"
-                >
-                  <h2 className="font-serif text-3xl">{concept.title}</h2>
-                  <p className="mt-5 text-sm leading-7 text-ash">
-                    {concept.text}
-                  </p>
-                </article>
-              ))}
-            </div>
+      <section className="min-h-[calc(100vh-76px)] bg-background px-5 py-20 sm:px-8 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-20 lg:grid-cols-[0.7fr_0.3fr]">
+          <div>
+            <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-museum-red">
+              Interactive Lab
+            </p>
+            <h1 className="mt-10 font-serif text-[clamp(4rem,12vw,12rem)] uppercase leading-[0.78] tracking-tight text-balance">
+              One room.
+            </h1>
+          </div>
+          <div className="self-end">
+            <p className="text-xl leading-9 text-ash">
+              For now, the lab contains a single experiment: a timed room for
+              looking before interpretation arrives.
+            </p>
+            <Link
+              href="/slow-looking"
+              className="mt-10 inline-block border border-charcoal bg-charcoal px-7 py-5 font-mono text-[11px] uppercase tracking-[0.24em] text-paper transition hover:border-museum-red hover:bg-museum-red"
+            >
+              Enter Slow Looking
+            </Link>
           </div>
         </div>
       </section>

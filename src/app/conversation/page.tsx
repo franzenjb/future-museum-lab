@@ -1,25 +1,29 @@
-import { Kicker, PageFrame } from "@/components/SiteShell";
+import { PageFrame } from "@/components/SiteShell";
 import { fragments } from "@/lib/content";
 
 export default function ConversationPage() {
   return (
     <PageFrame>
-      <section className="bg-paper px-5 py-16 sm:px-8">
-        <div className="mx-auto max-w-6xl">
-          <Kicker>Conversation Archive</Kicker>
-          <h1 className="mt-8 font-serif text-6xl leading-none text-balance sm:text-8xl">
-            Fragments worth preserving.
+      <section className="bg-paper px-5 py-20 sm:px-8 lg:py-32">
+        <div className="mx-auto max-w-7xl">
+          <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-museum-red">
+            Conversation Archive
+          </p>
+          <h1 className="mt-10 max-w-5xl font-serif text-[clamp(4rem,10vw,10rem)] leading-[0.82] tracking-tight text-balance">
+            Fragments on the wall.
           </h1>
-          <div className="mt-12 grid gap-4 md:grid-cols-2">
+          <div className="mt-28 space-y-32">
             {fragments.map((fragment, index) => (
               <blockquote
                 key={fragment}
-                className="min-h-64 border border-charcoal/15 bg-background p-6"
+                className={`max-w-5xl ${
+                  index % 2 === 0 ? "mr-auto" : "ml-auto"
+                }`}
               >
-                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-museum-red">
-                  Fragment 0{index + 1}
+                <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-ash">
+                  Wall text 0{index + 1}
                 </p>
-                <p className="mt-10 font-serif text-3xl leading-tight">
+                <p className="mt-8 border-l border-museum-red pl-8 font-serif text-[clamp(2.5rem,6vw,6.5rem)] leading-[0.96] tracking-tight text-balance">
                   “{fragment}”
                 </p>
               </blockquote>
